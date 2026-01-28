@@ -1,0 +1,5 @@
+qa_env/
+__pycache__/
+.env
+data/uploads/
+data/faiss_index/
