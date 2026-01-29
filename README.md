@@ -59,20 +59,41 @@ Latency was chosen due to its direct impact on user experience in production RAG
 ```bash
 git clone https://github.com/LakshitaJoshi/rag_qa.git
 cd rag_qa
+
+python -m venv qa_env
+
+qa_env\Scripts\activate
+
 pip install -r requirements.txt
 ```
 ---
-## Mandatory Explanations
 
-### Usage
-**Step 1: Ingest Documents** 
+### Running the Application
 ```bash
-python app/ingest.py
+uvicorn app.main:app --reload
 ```
-**Step 2: Run the Application** 
-```bash
-python app/main.py
+
 ```
+server runs at http://127.0.0.1:8000
+```
+
+- Open Swagger UI: http://127.0.0.1:8000/docs
+- Use POST /upload
+- Choose a .pdf or .txt file from your local system
+- Files are stored in: data/uploads
+
+Document ingestion runs as a background job and automatically:
+- Chunks the document
+- Generates Embeddings
+- Stores them in FAISS
+
+### Asking Questions
+- Use POST /query with JSON body:
+  ``` Json
+  {
+    "question": "What is the document about?"
+  }
+  ```
 ---
 
 ### Project Structure
@@ -80,6 +101,11 @@ python app/main.py
 ├── app/
 │   ├── ingest.py
 │   ├── main.py
+├── data/
+│   ├── uploads/
+│   ├── faiss_index/
+│   │   ├── index.faiss
+│   │   ├── metadata.pkl
 ├── architecture.png
 ├── requirements.txt
 ├── README.md
@@ -91,6 +117,7 @@ python app/main.py
 - Query expansion and reranking
 - Improved chunking strategies
 - Retrieval evaluation metrics such as recall@k
+
 
 
 
