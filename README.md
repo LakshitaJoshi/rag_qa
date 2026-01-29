@@ -43,7 +43,7 @@ This highlights a common limitation of embedding-based retrieval and motivates p
 **Latency** was tracked as a system-level performance metric.
 
 - Retrieval latency and end-to-end response time were measured from user query to final answer generation.
-- Average end-to-end latency ranged between 1–2 seconds, depending on query complexity and retrieved context size.
+- Average end-to-end latency ranged between 4-7 seconds, depending on query complexity and retrieved context size.
 
 Latency was chosen due to its direct impact on user experience in production RAG systems.
 ![Latency Measurement](latency.png)
@@ -117,6 +117,7 @@ Document ingestion runs as a background job and automatically:
 - Query expansion and reranking
 - Improved chunking strategies
 - Retrieval evaluation metrics such as recall@k
+
 
 
 
