@@ -57,8 +57,8 @@ Latency was chosen due to its direct impact on user experience in production RAG
 
 ### Installation
 ```bash
-git clone <your-github-repo-link>
-cd <repo-name>
+git clone [<your-github-repo-link>](https://github.com/LakshitaJoshi/rag_qa.git)
+cd rag_qa
 pip install -r requirements.txt
 ```
 ---
@@ -91,4 +91,5 @@ python app/main.py
 - Query expansion and reranking
 - Improved chunking strategies
 - Retrieval evaluation metrics such as recall@k
+
 
